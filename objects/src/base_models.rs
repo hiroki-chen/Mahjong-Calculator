@@ -130,15 +130,17 @@ pub enum Yaku {
   Suuankou,
   // 四槓子
   Suukanzu,
-  // 九蓮宝燈
-  Kokushijuusanmenmachi,
-  // 国士無双十三面
+  // 九蓮宝燈九面待ち
   Chuureikyuumenmachi,
+  // 国士無双十三面待ち
+  Kokushijuusanmenmachi,
   // 大四喜
   Daisuushii,
   // 四暗刻単騎
   Suuankoutanki,
 }
+
+pub const MANKAN: u8 = 5;
 
 /// Maps from yaku to its corresponding han.
 pub fn init_yaku_han_lookup() -> enum_map::EnumMap<Yaku, u8> {
@@ -154,6 +156,7 @@ pub fn init_yaku_han_lookup() -> enum_map::EnumMap<Yaku, u8> {
       Yaku::Nagashimankan => cur_han = 5,
       Yaku::Chiniitsu => cur_han = 6,
       Yaku::Tenhou => cur_han = 13,
+      Yaku::Chuureikyuumenmachi => cur_han = 26,
       _ => (),
     };
 
