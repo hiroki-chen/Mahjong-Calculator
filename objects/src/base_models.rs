@@ -58,10 +58,10 @@ pub enum Yaku {
   // 中
   Chun,
   // Self-wind or Round-wind.
-  // 自風
-  Jikaze,
   // 門風
   Monfon,
+  // 圏風
+  Chanfon,
   // 断幺
   Tanyao,
   // 一盃口
@@ -97,7 +97,7 @@ pub enum Yaku {
   // 小三元
   Shousangen,
   // 三槓子
-  Sanganzu,
+  Sankanzu,
   // 混一色
   Honiitsu,
   // 純全带幺九
@@ -144,6 +144,11 @@ pub const MANKAN: u8 = 5;
 pub const BASE: u8 = 20;
 pub const CHIITOI: u8 = 25;
 pub const MONZENKAFU: u8 = 10;
+pub const SUUANKOU: u8 = 4;
+pub const SUUKANZU: u8 = 4;
+pub const SANANKOU: u8 = 3;
+pub const SANKANZU: u8 = 3;
+
 
 /// Maps from yaku to its corresponding han.
 pub fn init_yaku_han_lookup() -> enum_map::EnumMap<Yaku, u8> {

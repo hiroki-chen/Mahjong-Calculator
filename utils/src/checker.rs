@@ -53,7 +53,6 @@ pub fn check_if_is_yaokyu(hai: &base_models::Hai) -> bool {
 /// Because 12s only waits for 3s, then this function will return true.
 pub fn check_if_single_machi(machi: &Vec<base_models::Hai>) -> bool {
   assert_ne!(machi.len(), 0);
-  
   if machi.len() == 1 {
     true
   } else {
