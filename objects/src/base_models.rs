@@ -17,19 +17,19 @@ pub enum Hai {
 pub enum MenzuType {
   Ankou,
   Minkou,
+  Ankan,
+  Minkan,
   Shunzu,
 }
 
 #[derive(PartialEq, Clone)]
 pub struct Menzu {
-  menzu_type: MenzuType,
-  content: Vec<Hai>,
-  fu: u8,
+  pub menzu_type: MenzuType,
+  pub content: Vec<Hai>,
 }
 
 pub struct Atama {
-  content: Hai,
-  fu: u8,
+  pub content: Hai,
 }
 
 /// How the player wins.
@@ -141,6 +141,9 @@ pub enum Yaku {
 }
 
 pub const MANKAN: u8 = 5;
+pub const BASE: u8 = 20;
+pub const CHIITOI: u8 = 25;
+pub const MONZENKAFU: u8 = 10;
 
 /// Maps from yaku to its corresponding han.
 pub fn init_yaku_han_lookup() -> enum_map::EnumMap<Yaku, u8> {

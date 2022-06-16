@@ -24,6 +24,43 @@ pub fn check_if_is_same_type(hai_in_hand: &Vec<base_models::Hai>) -> bool {
   }
 }
 
+/// Returns true if the input hai is 1-9 or Zuhai.
+/// We would have extra bonus for yaokyuhai.
+pub fn check_if_is_yaokyu(hai: &base_models::Hai) -> bool {
+  let judge = |x: &u8| -> bool {
+    let res: bool = match x {
+      1 => true,
+      9 => true,
+      _ => false,
+    };
+    res
+  };
+
+  match hai {
+    base_models::Hai::Z(_) => true,
+    base_models::Hai::M(val) => judge(val),
+    base_models::Hai::P(val) => judge(val),
+    base_models::Hai::S(val) => judge(val),
+  }
+}
+
+/// Returns true if we are waiting only one hai.
+///
+/// For example, consider the pattern:
+///
+///   123m123p12s111z | 3s Ron
+///
+/// Because 12s only waits for 3s, then this function will return true.
+pub fn check_if_single_machi(machi: &Vec<base_models::Hai>) -> bool {
+  assert_ne!(machi.len(), 0);
+  
+  if machi.len() == 1 {
+    true
+  } else {
+    false
+  }
+}
+
 /// This function checks whether the current three hai's consist a Menzu.
 /// Menzu can be in two forms: Kozu (Anko, Minko, Ankan, Minkan) or Shunzu.
 /// Before calling this function, make sure that hai_in_hand is sorted by
